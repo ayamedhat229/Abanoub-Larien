@@ -20,7 +20,7 @@ body{
   background:var(--beige);
   color:var(--text);
   overflow-x:hidden;
-  cursor:none;
+  /* cursor:none; */
 }
 .hero-names,
 h1,h2,h3{
@@ -31,7 +31,7 @@ body{
   font-family:'Nunito',sans-serif;
 }
 /* ─── CUSTOM CURSOR ─── */
-#cursor{
+/* #cursor{
   width:18px;height:18px;
   border:2px solid var(--rose-gold);
   border-radius:50%;
@@ -50,7 +50,7 @@ body{
   pointer-events:none;
   z-index:99999;
   transform:translate(-50%,-50%);
-}
+} */
 
 /* ─── ENVELOPE SCREEN ─── */
 #envelope-screen{
@@ -506,6 +506,74 @@ color: var(--rose-gold);
   font-size:1.3rem;
   color:#cc8f9d;
   box-shadow:0 0 0 8px #fdf7f3;
+}
+@media (max-width: 640px) {
+
+  #timeline {
+    padding: 60px 0;
+  }
+
+  .timeline-title {
+    font-size: clamp(2.5rem, 10vw, 5rem);
+  }
+
+  .timeline-modern {
+    width: 92%;
+  }
+
+  /* Move the vertical line to the left side */
+  .timeline-modern::before {
+    left: 31px;
+    transform: none;
+  }
+
+  /* All rows become a simple left-to-right flex */
+  .timeline-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  /* Icon always comes first on mobile */
+  .timeline-row.left .timeline-center,
+  .timeline-row.right .timeline-center {
+    order: -1;
+    flex-shrink: 0;
+  }
+
+  /* Reset all desktop positional overrides */
+  .timeline-row.left .timeline-content,
+  .timeline-row.right .timeline-content {
+    grid-column: unset;
+    justify-self: unset;
+    text-align: left;
+    padding: 0;
+    max-width: 100%;
+  }
+
+  /* Hide the empty placeholder div in .right rows */
+  .timeline-row.right > div:first-child:not(.timeline-center):not(.timeline-content) {
+    display: none;
+  }
+
+  .timeline-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.1rem;
+    box-shadow: 0 0 0 6px #fdf7f3;
+  }
+
+  .timeline-content h3 {
+    font-size: clamp(1.8rem, 7vw, 3.2rem);
+    margin-bottom: 6px;
+  }
+
+  .timeline-content p {
+    font-size: 0.95rem;
+  }
+
 }
 /* ─── VENUE ─── */
 .venue-img-wrap{
