@@ -33,7 +33,7 @@ function openEnvelope(){
 
 // ── COUNTDOWN
 function updateCountdown(){
-  const target = new Date('2026-06-04T19:00:00');
+const target = new Date('2026-12-04T00:00:00');
   const now = new Date();
   const diff = target - now;
   if(diff <= 0){
